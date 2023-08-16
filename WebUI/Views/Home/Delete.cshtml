@@ -1,0 +1,112 @@
+﻿@model WebUI.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm(new { page = ViewBag.CurrentPage }))
+{
+    @Html.AntiForgeryToken()
+    <h3>Silmek istediğinize emin misiniz?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Website)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsSubscribed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsSubscribed)
+            </dd>
+
+        </dl>
+
+      
+
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-outline-dark" />
+            </div>
+        
+    </div>
+}
+
+
