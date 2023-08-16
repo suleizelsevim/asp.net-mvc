@@ -24,31 +24,13 @@ namespace WebUI.Controllers
             ViewBag.CurrentPage = page;
             var user = new User();
             return View(user);
-
         }
 
         [HttpPost]
         public ActionResult User(User user, int page)
         {
-            var yy = new UserManager();
-            var user2 = new User
-            {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                Password = user.Password,
-                DateOfBirth = user.DateOfBirth,
-                Gender=user.Gender,
-                City = user.City,
-                Website = user.Website,
-                Adress = user.Adress,
-                IsSubscribed = user.IsSubscribed
-
-            };
-
-            yy.SetUsers(user2);
-            var aa = new UserManager();
+            var addUser = new UserManager();
+            addUser.SetUsers(user);
             return RedirectToAction("Table", "Home", new { page = page });
 
         }
@@ -59,52 +41,42 @@ namespace WebUI.Controllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             //return View(User.ToPagedList(pageNumber, pageSize));
-            var aa = new UserManager();
+            var userList = new UserManager();
             
-            var dd = aa.GetUsers().ToPagedList(pageNumber, pageSize);
+            var pagedList = userList.GetUsers().ToPagedList(pageNumber, pageSize);
             
             ViewBag.CurrentPage = page;
-            if (dd.Count == 0)
+            if (pagedList.Count == 0)
             {
                 page = page - 1;
                 ViewBag.CurrentPage= page;
                 pageNumber = pageNumber - 1;
-                return View(aa.GetUsers().ToPagedList(pageNumber, pageSize));
+                return View(userList.GetUsers().ToPagedList(pageNumber, pageSize));
             }
             
-            return View(dd);
+            return View(pagedList);
         }
         [HttpGet]
         public JsonResult TableJson()
         {
-            var aa = new UserManager();
-            return Json(aa.GetUsers(), JsonRequestBehavior.AllowGet);
+            var jsonList = new UserManager();
+            return Json(jsonList.GetUsers(), JsonRequestBehavior.AllowGet);
         }
-
-        //    List<User> userList = yy.GetUsers();
-        //    return View(userTbl);
-        //}
-
-
 
         [HttpPost]
         public ActionResult Table(User user)
         {
-            //users = new User();
             return View(user);
-
-
         }
 
         [HttpGet]
         public ActionResult Update(int id, int page) {
-            var user = new User();
             var upd=new UserManager().GetUserById(id);
-            var aa=new UserManager();
+            var updateUser=new UserManager();
             ViewBag.CurrentPage = page;
             if (upd == null)
             {
-                return View("Table", aa.GetUsers());
+                return View("Table", updateUser.GetUsers());
             }
             return View(upd);
 
@@ -113,69 +85,32 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult Update(User user, int page)
         {
-            var yy = new UserManager();
-            var updateUser = new User
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                Password = user.Password,
-                DateOfBirth = user.DateOfBirth,
-                Gender=user.Gender,
-                City = user.City,
-                Website = user.Website,
-                Adress = user.Adress,
-                IsSubscribed = user.IsSubscribed
-            };
-
-            yy.UpdateUser(updateUser);
-            var aa = new UserManager();
+            var updateUser = new UserManager();
+            updateUser.UpdateUser(user);
             return RedirectToAction("Table", "Home", new { page = page });
 
         }
         [HttpGet]
         public ActionResult Delete(int id, int page)
         {
-            var user = new User();
-            var delete = new UserManager().GetUserById(id);
+            var deleteUser = new UserManager().GetUserById(id);
             var aa = new UserManager();
             ViewBag.CurrentPage = page;
 
-            if (delete == null)
+            if (deleteUser == null)
             {
                 return View("Table", aa.GetUsers());
             }
-            return View(delete);
+            return View(deleteUser);
 
         }
 
         [HttpPost]
         public ActionResult Delete(User user, int page)
         {
-            var yy = new UserManager();
-            var deleteUser = new User
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                Password = user.Password,
-                DateOfBirth = user.DateOfBirth,
-                Gender = user.Gender,
-                City = user.City,
-                Website = user.Website,
-                Adress = user.Adress,
-                IsSubscribed = user.IsSubscribed
-            };
-            yy.DeleteUser(deleteUser);
-            var aa = new UserManager();
-            
+            var deleteUser = new UserManager();
+            deleteUser.DeleteUser(user);
             return RedirectToAction("Table", "Home", new { page = page });
-
-            
         }
 
         [HttpGet]
