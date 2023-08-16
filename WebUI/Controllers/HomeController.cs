@@ -19,7 +19,7 @@ namespace WebUI.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult User(int page)
+        public ActionResult AddUser(int page)
         {
             ViewBag.CurrentPage = page;
             var user = new User();
@@ -27,7 +27,7 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult User(User user, int page)
+        public ActionResult AddUser(User user, int page)
         {
             var addUser = new UserManager();
             addUser.SetUsers(user);

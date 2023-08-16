@@ -214,7 +214,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\User.cshtml" />
+    <Content Include="Views\Home\AddUser.cshtml" />
     <Content Include="Views\Home\Update.cshtml" />
     <Content Include="Views\Home\Table.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
