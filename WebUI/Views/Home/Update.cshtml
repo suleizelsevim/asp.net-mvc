@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "View";
-    
+
 }
 
 <h2>Düzenle</h2>
@@ -13,196 +13,199 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "10" } })
-            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "10" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-            @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10" style="display: flex; align-items: baseline; gap: 1rem;">
-            <p>Kadın</p>
-            @Html.RadioButtonFor(model => model.Gender, "Kadın", new { htmlAttributes = new { @class = "form-control", @value="Kadın" } })
-            <p>Erkek</p>
-            @Html.RadioButtonFor(model => model.Gender, "Erkek", new { htmlAttributes = new { @class = "form-control", @value="Erkek" } })
-            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="display: flex; align-items: baseline; gap: 1rem;">
+                <p>Kadın</p>
+                @Html.RadioButtonFor(model => model.Gender, "Kadın", new { htmlAttributes = new { @class = "form-control", @value = "Kadın" } })
+                <p>Erkek</p>
+                @Html.RadioButtonFor(model => model.Gender, "Erkek", new { htmlAttributes = new { @class = "form-control", @value = "Erkek" } })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.City, new SelectList(
-           new List<Object>
-           {
-               new {value="Adana", text="Adana"},
-               new {value="Adıyaman", text="Adıyaman"},
-               new {value="Afyonkarahisar", text="Afyonkarahisar"},
-               new {value="Ağrı", text="Ağrı"},
-               new {value="Aksaray", text="Aksaray"},
-               new {value="Amasya", text="Amasya"},
-               new {value="Ankara", text="Ankara"},
-               new {value="Antalya", text="Antalya"},
-               new {value="Ardahan", text="Ardahan"},
-               new {value="Artvin", text="Artvin"},
-               new {value="Aydın", text="Aydın"},
-               new {value="Balıkesir", text="Balıkesir"},
-               new {value="Bartın", text="Bartın"},
-               new {value="Bayburt", text="Bayburt"},
-               new {value="Bilecik", text="Bilecik"},
-               new {value="Bingöl", text="Bingöl"},
-               new {value="Bitlis", text="Bitlis"},
-               new {value="Bolu", text="Bolu"},
-               new {value="Burdur", text="Burdur"},
-               new {value="Bursa", text="Bursa"},
-               new {value="Batman", text="Batman"},
-               new {value="Çanakkale", text="Çanakkale"},
-               new { value = "Çankırı", text = "Çankırı" },
-new { value = "Çorum", text = "Çorum" },
-new { value = "Denizli", text = "Denizli" },
-new { value = "Diyarbakır", text = "Diyarbakır" },
-new { value = "Düzce", text = "Düzce" },
-new { value = "Edirne", text = "Edirne" },
-new { value = "Elazığ", text = "Elazığ" },
-new { value = "Erzincan", text = "Erzincan" },
-new { value = "Erzurum", text = "Erzurum" },
-new { value = "Eskişehir", text = "Eskişehir" },
-new { value = "Gaziantep", text = "Gaziantep" },
-new { value = "Giresun", text = "Giresun" },
-new { value = "Gümüşhane", text = "Gümüşhane" },
-new { value = "Hakkâri", text = "Hakkâri" },
-new { value = "Hatay", text = "Hatay" },
-new { value = "Iğdır", text = "Iğdır" },
-new { value = "Isparta", text = "Isparta" },
-new { value = "Mersin", text = "Mersin" },
-new { value = "İstanbul", text = "İstanbul" },
-new { value = "İzmir", text = "İzmir" },
-new { value = "Karabük", text = "Karabük" },
-new { value = "Karaman", text = "Karaman" },
-new { value = "Kars", text = "Kars" },
-new { value = "Kastamonu", text = "Kastamonu" },
-new { value = "Kayseri", text = "Kayseri" },
-new { value = "Kırıkkale", text = "Kırıkkale" },
-new { value = "Kırklareli", text = "Kırklareli" },
-new { value = "Kırşehir", text = "Kırşehir" },
-new { value = "Kilis", text = "Kilis" },
-new { value = "Kocaeli", text = "Kocaeli" },
-new { value = "Konya", text = "Konya" },
-new { value = "Kütahya", text = "Kütahya" },
-new { value = "Malatya", text = "Malatya" },
-new { value = "Manisa", text = "Manisa" },
-new { value = "Kahramanmaraş", text = "Kahramanmaraş" },
-new { value = "Mardin", text = "Mardin" },
-new { value = "Muğla", text = "Muğla" },
-new { value = "Muş", text = "Muş" },
-new { value = "Nevşehir", text = "Nevşehir" },
-new { value = "Niğde", text = "Niğde" },
-new { value = "Ordu", text = "Ordu" },
-new { value = "Osmaniye", text = "Osmaniye" },
-new { value = "Rize", text = "Rize" },
-new { value = "Sakarya", text = "Sakarya" },
-new { value = "Samsun", text = "Samsun" },
-new { value = "Siirt", text = "Siirt" },
-new { value = "Sinop", text = "Sinop" },
-new { value = "Sivas", text = "Sivas" },
-new { value = "Şırnak", text = "Şırnak" },
-new { value = "Tekirdağ", text = "Tekirdağ" },
-new { value = "Tokat", text = "Tokat" },
-new { value = "Trabzon", text = "Trabzon" },
-new { value = "Tunceli", text = "Tunceli" },
-new { value = "Şanlıurfa", text = "Şanlıurfa" },
-new { value = "Uşak", text = "Uşak" },
-new { value = "Van", text = "Van" },
-new { value = "Yalova", text = "Yalova" },
-new { value = "Yozgat", text = "Yozgat" },
-new { value = "Zonguldak", text = "Zonguldak" }
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.City, new SelectList(
+               new List<Object>
+               {
+                   new {value="Adana", text="Adana"},
+                   new {value="Adıyaman", text="Adıyaman"},
+                   new {value="Afyonkarahisar", text="Afyonkarahisar"},
+                   new {value="Ağrı", text="Ağrı"},
+                   new {value="Aksaray", text="Aksaray"},
+                   new {value="Amasya", text="Amasya"},
+                   new {value="Ankara", text="Ankara"},
+                   new {value="Antalya", text="Antalya"},
+                   new {value="Ardahan", text="Ardahan"},
+                   new {value="Artvin", text="Artvin"},
+                   new {value="Aydın", text="Aydın"},
+                   new {value="Balıkesir", text="Balıkesir"},
+                   new {value="Bartın", text="Bartın"},
+                   new {value="Bayburt", text="Bayburt"},
+                   new {value="Bilecik", text="Bilecik"},
+                   new {value="Bingöl", text="Bingöl"},
+                   new {value="Bitlis", text="Bitlis"},
+                   new {value="Bolu", text="Bolu"},
+                   new {value="Burdur", text="Burdur"},
+                   new {value="Bursa", text="Bursa"},
+                   new {value="Batman", text="Batman"},
+                   new {value="Çanakkale", text="Çanakkale"},
+                   new { value = "Çankırı", text = "Çankırı" },
+    new { value = "Çorum", text = "Çorum" },
+    new { value = "Denizli", text = "Denizli" },
+    new { value = "Diyarbakır", text = "Diyarbakır" },
+    new { value = "Düzce", text = "Düzce" },
+    new { value = "Edirne", text = "Edirne" },
+    new { value = "Elazığ", text = "Elazığ" },
+    new { value = "Erzincan", text = "Erzincan" },
+    new { value = "Erzurum", text = "Erzurum" },
+    new { value = "Eskişehir", text = "Eskişehir" },
+    new { value = "Gaziantep", text = "Gaziantep" },
+    new { value = "Giresun", text = "Giresun" },
+    new { value = "Gümüşhane", text = "Gümüşhane" },
+    new { value = "Hakkâri", text = "Hakkâri" },
+    new { value = "Hatay", text = "Hatay" },
+    new { value = "Iğdır", text = "Iğdır" },
+    new { value = "Isparta", text = "Isparta" },
+    new { value = "Mersin", text = "Mersin" },
+    new { value = "İstanbul", text = "İstanbul" },
+    new { value = "İzmir", text = "İzmir" },
+    new { value = "Karabük", text = "Karabük" },
+    new { value = "Karaman", text = "Karaman" },
+    new { value = "Kars", text = "Kars" },
+    new { value = "Kastamonu", text = "Kastamonu" },
+    new { value = "Kayseri", text = "Kayseri" },
+    new { value = "Kırıkkale", text = "Kırıkkale" },
+    new { value = "Kırklareli", text = "Kırklareli" },
+    new { value = "Kırşehir", text = "Kırşehir" },
+    new { value = "Kilis", text = "Kilis" },
+    new { value = "Kocaeli", text = "Kocaeli" },
+    new { value = "Konya", text = "Konya" },
+    new { value = "Kütahya", text = "Kütahya" },
+    new { value = "Malatya", text = "Malatya" },
+    new { value = "Manisa", text = "Manisa" },
+    new { value = "Kahramanmaraş", text = "Kahramanmaraş" },
+    new { value = "Mardin", text = "Mardin" },
+    new { value = "Muğla", text = "Muğla" },
+    new { value = "Muş", text = "Muş" },
+    new { value = "Nevşehir", text = "Nevşehir" },
+    new { value = "Niğde", text = "Niğde" },
+    new { value = "Ordu", text = "Ordu" },
+    new { value = "Osmaniye", text = "Osmaniye" },
+    new { value = "Rize", text = "Rize" },
+    new { value = "Sakarya", text = "Sakarya" },
+    new { value = "Samsun", text = "Samsun" },
+    new { value = "Siirt", text = "Siirt" },
+    new { value = "Sinop", text = "Sinop" },
+    new { value = "Sivas", text = "Sivas" },
+    new { value = "Şırnak", text = "Şırnak" },
+    new { value = "Tekirdağ", text = "Tekirdağ" },
+    new { value = "Tokat", text = "Tokat" },
+    new { value = "Trabzon", text = "Trabzon" },
+    new { value = "Tunceli", text = "Tunceli" },
+    new { value = "Şanlıurfa", text = "Şanlıurfa" },
+    new { value = "Uşak", text = "Uşak" },
+    new { value = "Van", text = "Van" },
+    new { value = "Yalova", text = "Yalova" },
+    new { value = "Yozgat", text = "Yozgat" },
+    new { value = "Zonguldak", text = "Zonguldak" }
 
-           },
-           "value",
-           "text",
-           Model.City), new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+               },
+               "value",
+               "text",
+               Model.City), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IsSubscribed, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.IsSubscribed, new { htmlAttributes = new { @style = "cursor:pointer;" } })
-                @Html.ValidationMessageFor(model => model.IsSubscribed, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsSubscribed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsSubscribed, new { htmlAttributes = new { @style = "cursor:pointer;" } })
+                    @Html.ValidationMessageFor(model => model.IsSubscribed, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" id="submit" value="Save" class="btn btn-primary">Güncelle</button>
             </div>
         </div>
     </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" id="submit" value="Save" class="btn btn-outline-dark">Güncelle</button>
-        </div>
-    </div>
-</div>
+    <hr />
+    <footer>
+    </footer>
 }
 
 

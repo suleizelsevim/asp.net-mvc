@@ -20,7 +20,7 @@ namespace WebUI.DatabaseContext
             _connection.Open();
         }
 
-        public void Dispose()
+        public void Dispose() //işlemi sonlandırır ve bellekten atar
         {
             if (_connection != null)
                 _connection.Dispose();

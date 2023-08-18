@@ -7,7 +7,7 @@
 <h2>Ekle</h2>
 
 
-@using (Html.BeginForm(new {@id="form", page=ViewBag.CurrentPage}))
+@using (Html.BeginForm(new { @id = "form", page = ViewBag.CurrentPage }))
 {
     @Html.AntiForgeryToken()
 
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
+
                 @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
             </div>
@@ -167,7 +167,7 @@ new { value = "Zonguldak", text = "Zonguldak" }
                },
                "value",
                "text",
-               Model.City), new {@class="form-control"})
+               Model.City), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -200,18 +200,18 @@ new { value = "Zonguldak", text = "Zonguldak" }
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Ekle" class="btn btn-primary" />
+                <input type="submit" value="Ekle" class="btn btn-success" />
             </div>
         </div>
-
-
-
     </div>
+    <hr />
+    <footer>
+    </footer>
 }
 
 
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval");
+    @Scripts.Render("~/bundles/jqueryval")
 }
 

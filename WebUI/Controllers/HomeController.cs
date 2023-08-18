@@ -32,36 +32,35 @@ namespace WebUI.Controllers
             var addUser = new UserManager();
             addUser.SetUsers(user);
             return RedirectToAction("Table", "Home", new { page = page });
-
         }
+
         [HttpGet]
         public ActionResult Table(int? page=1)
         {
-            
-            int pageSize = 5;
+            int pageSize = 8; //her sayfada kaç row
             int pageNumber = (page ?? 1);
-            //return View(User.ToPagedList(pageNumber, pageSize));
             var userList = new UserManager();
-            
             var pagedList = userList.GetUsers().ToPagedList(pageNumber, pageSize);
             
             ViewBag.CurrentPage = page;
-            if (pagedList.Count == 0)
+
+            if (pagedList.Count == 0) //son sayfada 1 veri varken veri silindiğinde bir önceki sayfaya gitmesi için
             {
                 page = page - 1;
-                ViewBag.CurrentPage= page;
+                ViewBag.CurrentPage = page;
                 pageNumber = pageNumber - 1;
-                return View(userList.GetUsers().ToPagedList(pageNumber, pageSize));
+                var prePagedList = userList.GetUsers().ToPagedList(pageNumber, pageSize);
+                return View(prePagedList);
             }
-            
             return View(pagedList);
         }
-        [HttpGet]
-        public JsonResult TableJson()
-        {
-            var jsonList = new UserManager();
-            return Json(jsonList.GetUsers(), JsonRequestBehavior.AllowGet);
-        }
+
+        //[HttpGet]
+        //public JsonResult TableJson()
+        //{
+        //    var jsonList = new UserManager();
+        //    return Json(jsonList.GetUsers(), JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpPost]
         public ActionResult Table(User user)
@@ -74,12 +73,12 @@ namespace WebUI.Controllers
             var upd=new UserManager().GetUserById(id);
             var updateUser=new UserManager();
             ViewBag.CurrentPage = page;
+
             if (upd == null)
             {
                 return View("Table", updateUser.GetUsers());
             }
             return View(upd);
-
         }
 
         [HttpPost]
@@ -88,8 +87,8 @@ namespace WebUI.Controllers
             var updateUser = new UserManager();
             updateUser.UpdateUser(user);
             return RedirectToAction("Table", "Home", new { page = page });
-
         }
+
         [HttpGet]
         public ActionResult Delete(int id, int page)
         {

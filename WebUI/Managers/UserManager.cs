@@ -48,18 +48,18 @@ namespace WebUI.Managers
         }
 
 
-        public User SetUsers(User model)
+        public void SetUsers(User model)
         {
             try
             {
                 using (var db = new ContextDb())
                 {
-                    string sql = @"INSERT INTO Users (FirstName, LastName, Email, Password, PhoneNumber, DateOfBirth, Gender, City, Website, Adress, IsSubscribed, Photo) 
-                                   VALUES (@FirstName, @LastName, @Email, @Password, @PhoneNumber, @DateOfBirth, @Gender, @City, @Website, @Adress, @IsSubscribed, @Photo)";
+                    string sql = $@"
+                                    INSERT INTO Users (FirstName, LastName, Email, Password, PhoneNumber, DateOfBirth, Gender, City, Website, Adress, IsSubscribed, Photo) 
+                                    VALUES ('{model.FirstName}', '{model.LastName}', '{model.Email}', '{model.Password}', '{model.PhoneNumber}', '{model.DateOfBirth}', '{model.Gender}', '{model.City}', '{model.Website}', '{model.Adress}', '{model.IsSubscribed}', '{model.Photo}')";
 
-                    var user = db._connection.QuerySingleOrDefault<User>(sql, model);
+                    var user = db._connection.Execute(sql);
 
-                    return user;
                 }
             }
             catch (Exception)
@@ -109,7 +109,6 @@ namespace WebUI.Managers
                 return model;
             }
         }
-
 
     }
 }
